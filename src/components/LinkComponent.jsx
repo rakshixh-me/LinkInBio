@@ -1,10 +1,10 @@
 import React from "react";
 import styles from "../css/LinkComponent.module.css";
 
-const LinkComponent = ({ title, url }) => {
+const LinkComponent = ({ linktitle, url }) => {
   return (
     <a href={url} className={styles.link}>
-      {title}
+      {linktitle}
     </a>
   );
 };

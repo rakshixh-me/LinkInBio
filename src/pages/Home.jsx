@@ -3,23 +3,44 @@ import LinkComponent from "../components/LinkComponent";
 import styles from "../css/Home.module.css";
 import linksData from "../links.json";
 
-const Home = () => {
-  const [links, setLinks] = useState([]);
+const HomePage = () => {
+  const [pages, setPages] = useState([]);
+  const [activePage, setActivePage] = useState(0);
 
   useEffect(() => {
-    setLinks(linksData);
+    setPages(Object.values(linksData));
   }, []);
+
+  const handlePageClick = (index) => {
+    setActivePage(index);
+  };
 
   return (
     <div className={styles.homePage}>
-      <h1 className={styles.title}>My Links</h1>
+      <nav className={styles.navbar}>
+        {pages.map((page, pageIndex) => (
+          <button
+            key={pageIndex}
+            className={`${styles.navButton} ${
+              activePage === pageIndex ? styles.active : ""
+            }`}
+            onClick={() => handlePageClick(pageIndex)}
+          >
+            {page.title}
+          </button>
+        ))}
+      </nav>
       <div className={styles.linksContainer}>
-        {links.map((link, index) => (
-          <LinkComponent key={index} title={link.title} url={link.url} />
+        {pages[activePage]?.links.map((link, linkIndex) => (
+          <LinkComponent
+            key={linkIndex}
+            linktitle={link.linktitle}
+            url={link.url}
+          />
         ))}
       </div>
     </div>
   );
 };
 
-export default Home;
+export default HomePage;
