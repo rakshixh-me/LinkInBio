@@ -1,39 +1,33 @@
-import React, { useEffect, useState } from "react";
+import React, { useState, useEffect } from "react";
 import LinkComponent from "../components/LinkComponent";
+import NavBar from "../components/Header";
 import styles from "../css/Home.module.css";
-import linksData from "../links.json";
+import { linksData } from "../linksData";
 
-const HomePage = () => {
-  const [pages, setPages] = useState([]);
-  const [activePage, setActivePage] = useState(0);
+const Home = () => {
+  const [links, setLinks] = useState([]);
 
   useEffect(() => {
-    setPages(Object.values(linksData));
-  }, []);
+    const currentPage = localStorage.getItem("currentpage");
+    let linksToSet;
 
-  const handlePageClick = (index) => {
-    setActivePage(index);
-  };
+    if (currentPage && linksData[currentPage]) {
+      linksToSet = linksData[currentPage];
+    } else {
+      const firstPageKey = Object.keys(linksData)[0];
+      linksToSet = linksData[firstPageKey];
+    }
+
+    setLinks(linksToSet);
+  }, []);
 
   return (
     <div className={styles.homePage}>
-      <nav className={styles.navbar}>
-        {pages.map((page, pageIndex) => (
-          <button
-            key={pageIndex}
-            className={`${styles.navButton} ${
-              activePage === pageIndex ? styles.active : ""
-            }`}
-            onClick={() => handlePageClick(pageIndex)}
-          >
-            {page.title}
-          </button>
-        ))}
-      </nav>
+      <NavBar />
       <div className={styles.linksContainer}>
-        {pages[activePage]?.links.map((link, linkIndex) => (
+        {links.map((link, index) => (
           <LinkComponent
-            key={linkIndex}
+            key={index}
             linktitle={link.linktitle}
             url={link.url}
           />
@@ -43,4 +37,4 @@ const HomePage = () => {
   );
 };
 
-export default HomePage;
+export default Home;
