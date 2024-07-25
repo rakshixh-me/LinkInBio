@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Turn as Hamburger } from "hamburger-react";
 import HeaderCSS from "../css/Header.module.css";
-import { linksData } from "../linksData";
+import { linksData, title } from "../linksData";
 import Loader from "../components/Loader";
 
 function Header() {
@@ -44,7 +44,7 @@ function Header() {
         style={{ textDecoration: "none", color: "white" }}
         onClick={handleTitleClick}
       >
-        <h1 style={{ fontWeight: "800" }}>Links</h1>
+        <h1 style={{ fontWeight: "800" }}>{title}</h1>
       </Link>
       <div className={HeaderCSS.hamburger}>
         <Hamburger toggled={menuOpen} toggle={setMenuOpen} />

@@ -30,3 +30,5 @@ export const linksData = {
     },
   ],
 };
+
+export const title = "Links";
