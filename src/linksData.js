@@ -1,5 +1,5 @@
 export const linksData = {
-  Page1: [
+  "Home Page": [
     {
       linktitle: "GitHub",
       url: "https://github.com/yourprofile",
@@ -9,7 +9,7 @@ export const linksData = {
       url: "https://linkedin.com/in/yourprofile",
     },
   ],
-  Page2: [
+  "Portfolio Page": [
     {
       linktitle: "Portfolio",
       url: "https://yourportfolio.com",
@@ -19,7 +19,7 @@ export const linksData = {
       url: "https://twitter.com/yourprofile",
     },
   ],
-  Page3: [
+  "Blog and Articles": [
     {
       linktitle: "Blog",
       url: "https://yourblog.com",
