@@ -1,13 +1,15 @@
 import React, { useState, useEffect } from "react";
 import LinkComponent from "../components/LinkComponent";
 import NavBar from "../components/Header";
+import Loader from "../components/Loader";
 import styles from "../css/Home.module.css";
 import { linksData } from "../linksData";
 
 const Home = () => {
   const [links, setLinks] = useState([]);
+  const [loading, setLoading] = useState(false);
 
-  useEffect(() => {
+  const updateLinks = () => {
     const currentPage = localStorage.getItem("currentpage");
     let linksToSet;
 
@@ -19,10 +21,29 @@ const Home = () => {
     }
 
     setLinks(linksToSet);
+  };
+
+  useEffect(() => {
+    updateLinks();
+
+    const handleStorageChange = () => {
+      setLoading(true);
+      setTimeout(() => {
+        updateLinks();
+        setLoading(false);
+      }, 500);
+    };
+
+    window.addEventListener("storage", handleStorageChange);
+
+    return () => {
+      window.removeEventListener("storage", handleStorageChange);
+    };
   }, []);
 
   return (
     <div className={styles.homePage}>
+      {loading && <Loader />}
       <NavBar />
       <div className={styles.linksContainer}>
         {links.map((link, index) => (
