@@ -1,5 +1,5 @@
 .container {
-    max-width: 900px;
+    max-width: 500px;
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
@@ -9,7 +9,7 @@
 
 .link {
     width: 100%;
-    background-color: #B7E4C7;
+    background-color: #F4EFE6;
     border-radius: 12px;
     display: flex;
     justify-content: flex-start;

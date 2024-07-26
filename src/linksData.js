@@ -8,6 +8,46 @@ export const linksData = {
       linktitle: "LinkedIn",
       url: "https://linkedin.com/in/yourprofile",
     },
+    {
+      linktitle: "GitHub",
+      url: "https://github.com/yourprofile",
+    },
+    {
+      linktitle: "LinkedIn",
+      url: "https://linkedin.com/in/yourprofile",
+    },
+    {
+      linktitle: "GitHub",
+      url: "https://github.com/yourprofile",
+    },
+    {
+      linktitle: "LinkedIn",
+      url: "https://linkedin.com/in/yourprofile",
+    },
+    {
+      linktitle: "GitHub",
+      url: "https://github.com/yourprofile",
+    },
+    {
+      linktitle: "LinkedIn",
+      url: "https://linkedin.com/in/yourprofile",
+    },
+    {
+      linktitle: "GitHub",
+      url: "https://github.com/yourprofile",
+    },
+    {
+      linktitle: "LinkedIn",
+      url: "https://linkedin.com/in/yourprofile",
+    },
+    {
+      linktitle: "GitHub",
+      url: "https://github.com/yourprofile",
+    },
+    {
+      linktitle: "LinkedIn",
+      url: "https://linkedin.com/in/yourprofile",
+    },
   ],
   "Portfolio Page": [
     {

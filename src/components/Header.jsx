@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { Cross as Hamburger } from "hamburger-react";
 import HeaderCSS from "../css/Header.module.css";
-import { linksData, title } from "../linksData";
+import { linksData } from "../linksData";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faXmark } from "@fortawesome/free-solid-svg-icons";
 
 function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -18,30 +19,17 @@ function Header() {
     window.dispatchEvent(new Event("storage"));
   };
 
-  const handleTitleClick = () => {
-    const firstPageKey = Object.keys(linksData)[0];
-    localStorage.setItem("currentpage", firstPageKey);
-    window.dispatchEvent(new Event("storage"));
-  };
-
   return (
-    <div>
-      <div className={HeaderCSS.container}>
-        <Link
-          to="/"
-          style={{ textDecoration: "none", color: "white" }}
-          onClick={handleTitleClick}
-        >
-          <h1
-            className={HeaderCSS.title}
-            style={{ fontWeight: "800", margin: "0px" }}
-          >
-            {title}
-          </h1>
-        </Link>
-        <div className={HeaderCSS.hamburger}>
-          <Hamburger toggled={menuOpen} toggle={setMenuOpen} />
-        </div>
+    <div className={HeaderCSS.container}>
+      <div
+        className={HeaderCSS.hamburger}
+        onClick={() => setMenuOpen(!menuOpen)}
+      >
+        {menuOpen ? (
+          <FontAwesomeIcon icon={faXmark} size="xl" />
+        ) : (
+          <span className={HeaderCSS.menuText}>Menu</span>
+        )}
       </div>
       <nav className={`${HeaderCSS.nav} ${menuOpen ? HeaderCSS.navOpen : ""}`}>
         <ul>
