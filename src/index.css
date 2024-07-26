@@ -1,4 +1,10 @@
 body {
   margin: 0;
   padding: 0;
+  background-color: #95D5B2;
+}
+
+@font-face {
+  font-family: 'LogoFont';
+  src: local('LogoFont'), url(./fonts/AgenorNeue-Regular.otf) format('opentype');
 }
