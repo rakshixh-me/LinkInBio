@@ -3,9 +3,11 @@ import styles from "../css/LinkComponent.module.css";
 
 const LinkComponent = ({ linktitle, url }) => {
   return (
-    <a href={url} className={styles.link}>
-      {linktitle}
-    </a>
+    <div className={styles.container}>
+      <a href={url} className={styles.link}>
+        {linktitle}
+      </a>
+    </div>
   );
 };
 

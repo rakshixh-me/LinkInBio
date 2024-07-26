@@ -1,9 +1,22 @@
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+}
+
 .link {
-    display: block;
-    padding: 10px;
-    margin: 5px 0;
+    width: 100%;
+    background-color: #B7E4C7;
+    border-radius: 12px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 25px 20px;
     text-decoration: none;
-    color: #0073e6;
+    color: #2D6A4F;
     font-weight: bold;
 }
 
