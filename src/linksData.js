@@ -31,4 +31,4 @@ export const linksData = {
   ],
 };
 
-export const title = "Links";
+export const title = "Quick Links";
