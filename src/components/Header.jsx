@@ -25,16 +25,23 @@ function Header() {
   };
 
   return (
-    <div className={HeaderCSS.container}>
-      <Link
-        to="/"
-        style={{ textDecoration: "none", color: "white" }}
-        onClick={handleTitleClick}
-      >
-        <h1 style={{ fontWeight: "800" }}>{title}</h1>
-      </Link>
-      <div className={HeaderCSS.hamburger}>
-        <Hamburger toggled={menuOpen} toggle={setMenuOpen} />
+    <div>
+      <div className={HeaderCSS.container}>
+        <Link
+          to="/"
+          style={{ textDecoration: "none", color: "white" }}
+          onClick={handleTitleClick}
+        >
+          <h1
+            className={HeaderCSS.title}
+            style={{ fontWeight: "800", margin: "0px" }}
+          >
+            {title}
+          </h1>
+        </Link>
+        <div className={HeaderCSS.hamburger}>
+          <Hamburger toggled={menuOpen} toggle={setMenuOpen} />
+        </div>
       </div>
       <nav className={`${HeaderCSS.nav} ${menuOpen ? HeaderCSS.navOpen : ""}`}>
         <ul>
