@@ -1,61 +1,24 @@
-import React, { useState, useEffect } from "react";
-import LinkComponent from "../components/LinkComponent";
-import NavBar from "../components/Header";
-import Loader from "../components/Loader";
-import styles from "../css/Home.module.css";
+import React from "react";
 import { linksData } from "../linksData";
+import Profile from "../assets/profile.jpg";
+import Link from "../components/LinkComponent";
 
-const Home = () => {
-  const [links, setLinks] = useState([]);
-  const [loading, setLoading] = useState(false);
-
-  const updateLinks = () => {
-    const currentPage = localStorage.getItem("currentpage");
-    let linksToSet;
-
-    if (currentPage && linksData[currentPage]) {
-      linksToSet = linksData[currentPage];
-    } else {
-      const firstPageKey = Object.keys(linksData)[0];
-      linksToSet = linksData[firstPageKey];
-    }
-
-    setLinks(linksToSet);
-  };
-
-  useEffect(() => {
-    updateLinks();
-
-    const handleStorageChange = () => {
-      setLoading(true);
-      setTimeout(() => {
-        updateLinks();
-        setLoading(false);
-      }, 500);
-    };
-
-    window.addEventListener("storage", handleStorageChange);
-
-    return () => {
-      window.removeEventListener("storage", handleStorageChange);
-    };
-  }, []);
-
+function Home() {
   return (
-    <div className={styles.homePage}>
-      {loading && <Loader />}
-      <NavBar />
-      <div className={styles.linksContainer}>
-        {links.map((link, index) => (
-          <LinkComponent
-            key={index}
-            linktitle={link.linktitle}
-            url={link.url}
-          />
-        ))}
-      </div>
+    <div>
+      <header>
+        <h1>{linksData.logo}</h1>
+      </header>
+      <main>
+        <img src={Profile} alt="Profile" className="img" />
+        <h2>{linksData.name}</h2>
+        <h3>{linksData.designation}</h3>
+        <div>
+          <Link />
+        </div>
+      </main>
     </div>
   );
-};
+}
 
 export default Home;
