@@ -1,21 +1,16 @@
-import React from "react";
+import React, { Suspense, lazy } from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import Home from "./pages/Home";
-import { linksData } from "./linksData";
-
+import Loader from "./components/Loader";
+const Home = lazy(() => import("./pages/Home"));
 function App() {
   return (
     <div className="App">
       <Router>
-        <Routes>
-          {Object.keys(linksData).map((pageKey, index) => (
-            <Route
-              key={index}
-              path={index === 0 ? "/" : `/${pageKey}`}
-              element={<Home />}
-            />
-          ))}
-        </Routes>
+        <Suspense fallback={<Loader />}>
+          <Routes>
+            <Route path="/" element={<Home />} />
+          </Routes>
+        </Suspense>
       </Router>
     </div>
   );
