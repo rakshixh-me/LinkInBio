@@ -5,7 +5,7 @@ const Home = lazy(() => import("./pages/Home"));
 
 function App() {
   return (
-    <div className="App">
+    <div className="App" style={{ maxWidth: "31.25rem" }}>
       <Router>
         <Suspense fallback={<Loader />}>
           <Routes>
