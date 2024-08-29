@@ -3,6 +3,10 @@ import { resolveProfileImagePath } from "./utility/ResolveProfileImagePath";
 // Customizable data, provide hex codes of the colors
 export const styleData = {
   AppBackgroundColor: "",
+  LogoColor: "",
+  ProfileImageBorderRadius: "",
+  NameColor: "",
+  DesignationColor: "",
   OutlineButtonStyle: {
     buttonBackgroundColor: "",
     buttonTextColor: "",
