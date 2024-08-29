@@ -1,0 +1,6 @@
+.linkContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 0.625rem;
+    margin-top: 1.25rem;
+}
