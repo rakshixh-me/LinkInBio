@@ -4,7 +4,7 @@ A customizable web page to showcase multiple links and personal details, perfect
 
 ## Preview
 
-You can view a live preview here [https://ra-link-in-bio.vercel.app/](https://ra-link-in-bio.vercel.app/).
+You can view a live preview here [https://rakshixh-linkinbio.vercel.app/](https://rakshixh-linkinbio.vercel.app/).
 
 ## Customise Data
 
